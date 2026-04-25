@@ -46,7 +46,7 @@ export default class PedidosController {
             const { nome, data_pedido, status, valor_total, forma_pagamento } = request.body;
             const createPedido = new CreatePedidosService();
             const pedido = await createPedido.execute({
-                nome, data_pedido, status, valor_total, forma_pagamento
+                nome, data_pedido, status, valor_total: Number(valor_total), forma_pagamento
             });
             return response.status(201).json(pedido);
         } catch (err) {
@@ -64,7 +64,7 @@ export default class PedidosController {
             const { nome, data_pedido, status, valor_total, forma_pagamento } = request.body;
             const updatePedido = new UpdatePedidosService();
             const pedido = await updatePedido.execute({
-                id, nome, data_pedido, status, valor_total, forma_pagamento
+                id, nome, data_pedido, status, valor_total: Number(valor_total), forma_pagamento
             });
             return response.status(200).json(pedido);
         } catch (err) {

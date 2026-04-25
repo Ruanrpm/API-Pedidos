@@ -16,7 +16,10 @@ pedidosRouter.get('/', async (req, res, next) => {
 
 pedidosRouter.get('/:id', celebrate({
     [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
+        id: Joi.string().uuid().required().messages({
+            'any.required': 'O ID é obrigatório.',
+            'string.uuid': 'O ID deve ser um UUID válido.'
+        }),
     },
 }), async (req, res, next) => {
     try {
@@ -28,11 +31,26 @@ pedidosRouter.get('/:id', celebrate({
 
 pedidosRouter.post('/', celebrate({
     [Segments.BODY]: {
-        nome: Joi.string().required(),
-        data_pedido: Joi.date().required(),
-        status: Joi.string().required(),
-        valor_total: Joi.number().precision(2).required(),
-        forma_pagamento: Joi.string().required(),
+        nome: Joi.string().required().messages({
+            'string.empty': 'O campo nome não pode estar vazio.',
+            'any.required': 'O campo nome é obrigatório.'
+        }),
+        data_pedido: Joi.date().required().messages({
+            'date.base': 'O campo data_pedido deve ser uma data válida.',
+            'any.required': 'O campo data_pedido é obrigatório.'
+        }),
+        status: Joi.string().required().messages({
+            'string.empty': 'O campo status não pode estar vazio.',
+            'any.required': 'O campo status é obrigatório.'
+        }),
+        valor_total: Joi.number().precision(2).required().messages({
+            'number.base': 'O campo valor_total deve ser um número.',
+            'any.required': 'O campo valor_total é obrigatório.'
+        }),
+        forma_pagamento: Joi.string().required().messages({
+            'string.empty': 'O campo forma_pagamento não pode estar vazio.',
+            'any.required': 'O campo forma_pagamento é obrigatório.'
+        }),
     },
 }), async (req, res, next) => {
     try {
@@ -44,14 +62,32 @@ pedidosRouter.post('/', celebrate({
 
 pedidosRouter.put('/:id', celebrate({
     [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
+        id: Joi.string().uuid().required().messages({
+            'any.required': 'O ID é obrigatório.',
+            'string.uuid': 'O ID deve ser um UUID válido.'
+        }),
     },
     [Segments.BODY]: {
-        nome: Joi.string().required(),
-        data_pedido: Joi.date().required(),
-        status: Joi.string().required(),
-        valor_total: Joi.number().precision(2).required(),
-        forma_pagamento: Joi.string().required(),
+        nome: Joi.string().required().messages({
+            'string.empty': 'O campo nome não pode estar vazio.',
+            'any.required': 'O campo nome é obrigatório.'
+        }),
+        data_pedido: Joi.date().required().messages({
+            'date.base': 'O campo data_pedido deve ser uma data válida.',
+            'any.required': 'O campo data_pedido é obrigatório.'
+        }),
+        status: Joi.string().required().messages({
+            'string.empty': 'O campo status não pode estar vazio.',
+            'any.required': 'O campo status é obrigatório.'
+        }),
+        valor_total: Joi.number().precision(2).required().messages({
+            'number.base': 'O campo valor_total deve ser um número.',
+            'any.required': 'O campo valor_total é obrigatório.'
+        }),
+        forma_pagamento: Joi.string().required().messages({
+            'string.empty': 'O campo forma_pagamento não pode estar vazio.',
+            'any.required': 'O campo forma_pagamento é obrigatório.'
+        }),
     },
 }), async (req, res, next) => {
     try {
@@ -63,7 +99,10 @@ pedidosRouter.put('/:id', celebrate({
 
 pedidosRouter.delete('/:id', celebrate({
     [Segments.PARAMS]: {
-        id: Joi.string().uuid().required(),
+        id: Joi.string().uuid().required().messages({
+            'any.required': 'O ID é obrigatório.',
+            'string.uuid': 'O ID deve ser um UUID válido.'
+        }),
     },
 }), async (req, res, next) => {
     try {

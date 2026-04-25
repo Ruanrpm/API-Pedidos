@@ -1,9 +1,9 @@
 class AppError{
-    public readonly massage: string;
+    public readonly message: string;
     public readonly statusCode: number;
 
-    constructor(massage: string, statusCode = 400){
-        this.massage = massage;
+    constructor(message: string, statusCode = 400){
+        this.message = message;
         this.statusCode = statusCode;
     }
 }
