@@ -1,4 +1,6 @@
 import 'reflect-metadata';
+import 'express-async-errors';
+import { errors } from 'celebrate';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -8,6 +10,7 @@ import { AppDataSource } from '@shared/typeorm/data-source';
 
 const app = express();
 
+app.use(errors());
 app.use(cors());
 app.use(express.json());
 app.use(routes);

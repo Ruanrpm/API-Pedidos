@@ -1,9 +1,9 @@
 import { response, Router } from "express";
 import { request } from "node:http";
-import userRouter from "@modules/users/routes/user.routes";
+import pedidosRouter from "@modules/pedidos/routes/pedidos.routes";
 
 
 const routes = Router();
-routes.use('/user', userRouter);
+routes.use('/pedidos', pedidosRouter);
 
 export default routes;

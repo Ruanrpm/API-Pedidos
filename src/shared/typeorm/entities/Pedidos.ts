@@ -6,25 +6,25 @@ import {
  UpdateDateColumn
 } from 'typeorm';
 
-@Entity('users')
-export default class User{
+@Entity('pedidos')
+export default class Pedidos{
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
     @Column()
     nome: string;
 
-    @Column({unique: true})
-    email: string;
-
-    @Column('int')
-    senha: number;
-
-    @Column('int')
-    telefone: number;
+    @Column({ type: 'date' })
+    data_pedido: Date;
 
     @Column()
-    endereco: string;
+    status: string;
+
+    @Column({ type: 'decimal', precision: 10, scale: 2 })
+    valor_total: number;
+
+    @Column()
+    forma_pagamento: string;
 
     @CreateDateColumn()
     created_at: Date
