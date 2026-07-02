@@ -11,13 +11,21 @@ export default class DeleteItemPedidosService {
   public async execute({ id }: IRequest): Promise<void> {
     const itemPedidosRepository = AppDataSource.getRepository(ItemPedidos);
 
-    const itemPedido = await itemPedidosRepository.findOneBy({ id });
+    const itemPedido = await itemPedidosRepository.findOne({
+      where: { id },
+      relations: ["pedido"],
+    });
 
     if (!itemPedido) {
       throw new AppError("Item do pedido não encontrado.");
     }
 
+    const pedidoId = itemPedido.pedido?.id;
+
     await itemPedidosRepository.remove(itemPedido);
-    await recalcularPedidoTotal(itemPedido.pedido.id);
+
+    if (pedidoId) {
+      await recalcularPedidoTotal(pedidoId);
+    }
   }
 }

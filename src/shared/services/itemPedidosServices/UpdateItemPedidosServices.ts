@@ -36,6 +36,23 @@ export default class UpdateItemPedidosService {
       throw new AppError("Item do pedido não encontrado.");
     }
 
+    if (!nome_item || !nome_item.trim()) {
+      throw new AppError("Nome do item é obrigatório.");
+    }
+
+    const quantidadeNumber = Number(quantidade);
+    const precoUnitarioNumber = Number(preco_unitario);
+
+    if (!Number.isFinite(quantidadeNumber) || quantidadeNumber <= 0) {
+      throw new AppError("Quantidade deve ser maior que zero.");
+    }
+
+    if (!Number.isFinite(precoUnitarioNumber) || precoUnitarioNumber <= 0) {
+      throw new AppError("Preço unitário deve ser maior que zero.");
+    }
+
+    const pedidoIdAnterior = itemPedido.pedido?.id;
+
     const pedido = await pedidosRepository.findOneBy({ id: pedido_id });
 
     if (!pedido) {
@@ -54,12 +71,12 @@ export default class UpdateItemPedidosService {
       throw new AppError("Já existe um item com esse nome neste pedido.");
     }
 
-    const subtotal = quantidade * preco_unitario;
+    const subtotal = Number((quantidadeNumber * precoUnitarioNumber).toFixed(2));
 
     itemPedido.pedido = pedido;
     itemPedido.nome_item = nome_item;
-    itemPedido.quantidade = quantidade;
-    itemPedido.preco_unitario = preco_unitario;
+    itemPedido.quantidade = quantidadeNumber;
+    itemPedido.preco_unitario = precoUnitarioNumber;
     itemPedido.subtotal = subtotal;
 
     if (observacao !== undefined) {
@@ -71,7 +88,13 @@ export default class UpdateItemPedidosService {
     }
 
     await itemPedidosRepository.save(itemPedido);
-    await recalcularPedidoTotal(pedido_id);
+
+    const pedidoIdAtual = itemPedido.pedido?.id || pedido_id;
+    await recalcularPedidoTotal(pedidoIdAtual);
+
+    if (pedidoIdAnterior && pedidoIdAnterior !== pedidoIdAtual) {
+      await recalcularPedidoTotal(pedidoIdAnterior);
+    }
 
     return itemPedido;
   }

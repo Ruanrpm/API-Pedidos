@@ -1,0 +1,298 @@
+type: collection.insomnia.rest/5.0
+schema_version: "5.1"
+name: Dev
+meta:
+  id: wrk_04057b78a9be4b46a5776d8de1f217ee
+  created: 1777141685174
+  modified: 1777141685174
+  description: ""
+collection:
+  - name: Pedidos
+    meta:
+      id: fld_ca911833755c4f4db98673c9a41363b1
+      created: 1777141823142
+      modified: 1777141823142
+      sortKey: -1777141823142
+      description: ""
+    children:
+      - url: "{{ _[''].base_url }}/pedidos"
+        name: Criar
+        meta:
+          id: req_274d715236a544f8a2ff3cf96e1fbad7
+          created: 1777141826669
+          modified: 1783009568098
+          isPrivate: false
+          description: ""
+          sortKey: -1777141826669
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"nome": "Combo",
+            	"data_pedido": "2006/11/28",
+            	"status": "Pendente",
+            	"valor_total": "0",
+            	"forma_pagamento": "BusCard"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/pedidos"
+        name: Listar
+        meta:
+          id: req_708744c8df514fdb8d5e4d6594136604
+          created: 1777142466528
+          modified: 1783009576005
+          isPrivate: false
+          description: ""
+          sortKey: -1777142466528
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/pedidos/b5a7b110-e279-44de-a953-b00ac5ceace9"
+        name: Get
+        meta:
+          id: req_78eba3d56af94f3e8e6ecc6f64429bf7
+          created: 1777142503143
+          modified: 1782956200815
+          isPrivate: false
+          description: ""
+          sortKey: -1777142503143
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/pedidos/fadf3ed8-e922-4df0-b460-9f274085ca6f"
+        name: Update
+        meta:
+          id: req_339d135908724745bb452824c9c43d3f
+          created: 1777142595354
+          modified: 1783007484251
+          isPrivate: false
+          description: ""
+          sortKey: -1777142595354
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            	{
+            		"nome": "bus",
+            		"data_pedido": "2006-11-28",
+            		"status": "pendente",
+            		"valor_total": "64.00",
+            		"forma_pagamento": "BusCard"
+            	}
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/pedidos/cf52a41a-b2e8-4ecc-8f35-deb997d77a4e"
+        name: Apagar
+        meta:
+          id: req_7282213194a34e0882241579cde04451
+          created: 1777142734724
+          modified: 1782957391455
+          isPrivate: false
+          description: ""
+          sortKey: -1777142734724
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/12.5.0
+            description: ""
+            disabled: false
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: ItemPedidos
+    meta:
+      id: fld_40227c74e3404c0da319f4f61d0cdc5a
+      created: 1782954986948
+      modified: 1782954986948
+      sortKey: -1782954986948
+      description: ""
+    children:
+      - url: "{{ _[''].base_url }}/itemPedidos"
+        name: Criar
+        meta:
+          id: req_5aa619864b084cd6b86b00e9503423f4
+          created: 1782954992441
+          modified: 1783009607286
+          isPrivate: false
+          description: ""
+          sortKey: -1782954992441
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "pedido_id": "402ec511-b654-46a5-a2ce-658f6aac6984",
+              "nome_item": "Hamburguer Artesanal",
+              "quantidade": 2,
+              "preco_unitario": 25.50,
+              "observacao": "Sem cebola",
+              "tamanho": "Grande"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/itemPedidos/"
+        name: Listar
+        meta:
+          id: req_aa885deab784483d81e0119ac0061031
+          created: 1782955462481
+          modified: 1783009590853
+          isPrivate: false
+          description: ""
+          sortKey: -1782955462481
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/itemPedidos/fadf3ed8-e922-4df0-b460-9f274085ca6f"
+        name: Get
+        meta:
+          id: req_40e1873ff5194df09fdb1e9092b62507
+          created: 1782955498314
+          modified: 1783007549136
+          isPrivate: false
+          description: ""
+          sortKey: -1782955498314
+        method: GET
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/itemPedidos/28199340-68d2-42bc-96c5-35a8ecaa9239"
+        name: Update
+        meta:
+          id: req_277375ba28034d8aa73312a25c699c81
+          created: 1782955544581
+          modified: 1783009697350
+          isPrivate: false
+          description: ""
+          sortKey: -1782955544581
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+              "nome_item": "Hambuerguer",
+              "quantidade": 2,
+              "preco_unitario": 35.50,
+              "observacao": "Sem cebola",
+              "tamanho": "Grande"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: "{{ _[''].base_url }}/itemPedidos/0a7cf458-80c8-42ae-9e86-98c0b3847486"
+        name: New Request
+        meta:
+          id: req_96db303eade0451ea905ae8ee680eb91
+          created: 1782955615294
+          modified: 1782955661202
+          isPrivate: false
+          description: ""
+          sortKey: -1782955615294
+        method: DELETE
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a186530a6a2a6e389af413122fef519370115b53
+    created: 1777141685177
+    modified: 1777141685177
+environments:
+  name: Base Environment
+  meta:
+    id: env_a186530a6a2a6e389af413122fef519370115b53
+    created: 1777141685176
+    modified: 1782955277700
+    isPrivate: false
+  data:
+    "":
+      base_url: http://localhost:3333
+      tokem: ""

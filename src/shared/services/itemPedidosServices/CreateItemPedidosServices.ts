@@ -30,7 +30,22 @@ export default class CreateItemPedidosService {
     });
 
     if (!pedido) {
-      throw new AppError("Pedido not found.");
+      throw new AppError("Pedido não encontrado.");
+    }
+
+    if (!nome_item || !nome_item.trim()) {
+      throw new AppError("Nome do item é obrigatório.");
+    }
+
+    const quantidadeNumber = Number(quantidade);
+    const precoUnitarioNumber = Number(preco_unitario);
+
+    if (!Number.isFinite(quantidadeNumber) || quantidadeNumber <= 0) {
+      throw new AppError("Quantidade deve ser maior que zero.");
+    }
+
+    if (!Number.isFinite(precoUnitarioNumber) || precoUnitarioNumber <= 0) {
+      throw new AppError("Preço unitário deve ser maior que zero.");
     }
 
     const itemPedidoExists = await itemPedidosRepository.findOne({
@@ -42,16 +57,16 @@ export default class CreateItemPedidosService {
     });
 
     if (itemPedidoExists) {
-      throw new AppError("Não existe um pedido com esse nome.");
+      throw new AppError("Já existe um item com esse nome neste pedido.");
     }
 
-    const subtotal = quantidade * preco_unitario;
+    const subtotal = Number((quantidadeNumber * precoUnitarioNumber).toFixed(2));
 
     const itemPedidoData: Partial<ItemPedidos> = {
         pedido,
         nome_item,
-        quantidade,
-        preco_unitario,
+        quantidade: quantidadeNumber,
+        preco_unitario: precoUnitarioNumber,
         subtotal,
     };
 
