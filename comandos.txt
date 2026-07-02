@@ -35,3 +35,26 @@ docker stop container
 
 rodar o docker:
 docker
+
+
+Item Pedido
+
+{
+  "pedido_id": "ID PEDIDO",
+  "nome_item": "Hambúrguer Artesanal",
+  "quantidade": 2,
+  "preco_unitario": 25.50,
+  "observacao": "Sem cebola",
+  "tamanho": "Grande"
+}
+
+Pedido
+{		
+	"nome": "bus",
+	"data_pedido": "2006-11-28",
+	"status": "Pendente",
+	"valor_total": "123.00",
+	"forma_pagamento": "BusCard",
+	"created_at": "2026-07-02T01:58:13.895Z",
+	"updated_at": "2026-07-02T01:58:13.895Z"
+}
