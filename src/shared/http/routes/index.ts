@@ -1,5 +1,4 @@
-import { response, Router } from "express";
-import { request } from "node:http";
+import { Router } from "express";
 import pedidosRouter from "@modules/pedidos/routes/pedidos.routes";
 
 

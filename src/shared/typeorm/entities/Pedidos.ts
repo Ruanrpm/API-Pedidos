@@ -2,9 +2,12 @@ import {
  Column,
  CreateDateColumn,
  Entity,
+ OneToMany,
  PrimaryGeneratedColumn,
  UpdateDateColumn
 } from 'typeorm';
+
+import ItemPedidos from './ItemPedidos';
 
 @Entity('pedidos')
 export default class Pedidos{
@@ -26,9 +29,12 @@ export default class Pedidos{
     @Column()
     forma_pagamento: string;
 
+    @OneToMany(() => ItemPedidos, itemPedido => itemPedido.pedido)
+    itens: ItemPedidos[];
+
     @CreateDateColumn()
-    created_at: Date
+    created_at: Date;
 
     @UpdateDateColumn()
-    updated_at: Date
+    updated_at: Date;
 }

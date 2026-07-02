@@ -1,0 +1,37 @@
+node -v
+npm i  -g typescript
+npm i  -g ts-node-dev
+npm i  -g @types/node
+tsc -v
+npm init -y
+npm i
+
+
+npm i typescript
+npm i ts-node-dev
+npm i -D @types/node
+npm i --save-dev tsconfig-paths
+tsc --init
+npx ts-node-dev --inspect -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/shared/http/server.ts
+
+npm i express@4
+npm i express-async-errors
+npm i cors
+npm i -D @types/express
+npm i -D @types/cors
+
+Intalação do typeORM:
+
+npm i typeorm@latest
+npm i reflect-metadata
+npm i pg
+
+comandos docker:
+docker run --name postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+docker ps 
+docker ps -a 
+docker start container
+docker stop container
+
+rodar o docker:
+docker

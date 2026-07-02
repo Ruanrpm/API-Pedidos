@@ -2,6 +2,7 @@ import "reflect-metadata";
 import { DataSource } from "typeorm";
 import path from "path";
 import Pedidos from "./entities/Pedidos";
+import ItemPedidos from "./entities/ItemPedidos";
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost", // se Node está fora do Docker
@@ -11,7 +12,7 @@ export const AppDataSource = new DataSource({
     database: "postgres",
     synchronize: false, // sempre false em produção/migrations
     logging: true,
-    entities: [Pedidos],
+    entities: [Pedidos, ItemPedidos],
     migrations: [path.join("src", "shared", "typeorm", "migrations", "*.ts")],
     subscribers: [],
 });
