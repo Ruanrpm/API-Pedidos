@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction, response } from 'express';
-import CreatePedidosService from '@shared/services/pedidosServices/CreatePedidosServices';
-import DeletePedidosService from '@shared/services/pedidosServices/DeletePedidosService';
-import ListPedidosService from '@shared/services/pedidosServices/ListPedidosService';
-import ShowPedidosService from '@shared/services/pedidosServices/ShowPedidosService';
-import UpdatePedidosService from '@shared/services/pedidosServices/UpdatePedidosService';
+import CreatePedidosService from '../../../shared/services/pedidosServices/CreatePedidosServices';
+import DeletePedidosService from '../../../shared/services/pedidosServices/DeletePedidosService';
+import ListPedidosService from '../../../shared/services/pedidosServices/ListPedidosService';
+import ShowPedidosService from '../../../shared/services/pedidosServices/ShowPedidosService';
+import UpdatePedidosService from '../../../shared/services/pedidosServices/UpdatePedidosService';
 
 export default class PedidosController {
 

@@ -1,6 +1,6 @@
 import { Router } from "express";
-import pedidosRouter from "@modules/pedidos/routes/pedidos.routes";
-import itemPedidosRouter from "@modules/itemPedidos/routes/itemPedidos.routes";
+import pedidosRouter from "../../../modules/pedidos/routes/pedidos.routes";
+import itemPedidosRouter from "../../../modules/itemPedidos/routes/itemPedidos.routes";
 
 
 const routes = Router();

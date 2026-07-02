@@ -1,7 +1,7 @@
-import AppError from "@shared/errors/AppError";
-import { AppDataSource } from "@shared/typeorm/data-source";
-import ItemPedidos from "@shared/typeorm/entities/ItemPedidos";
-import Pedidos from "@shared/typeorm/entities/Pedidos";
+import AppError from "../../errors/AppError";
+import { AppDataSource } from "../../typeorm/data-source";
+import ItemPedidos from "../../typeorm/entities/ItemPedidos";
+import Pedidos from "../../typeorm/entities/Pedidos";
 import { recalcularPedidoTotal } from "./recalcularPedidoTotal";
 
 interface IRequest {

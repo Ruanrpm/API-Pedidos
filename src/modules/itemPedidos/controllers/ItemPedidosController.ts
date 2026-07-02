@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import CreateItemPedidosService from '@shared/services/itemPedidosServices/CreateItemPedidosServices';
-import DeleteItemPedidosService from '@shared/services/itemPedidosServices/DeleteItemPedidosServices';
-import ListItemPedidosService from '@shared/services/itemPedidosServices/ListItemPedidosServices';
-import ShowItemPedidosService from '@shared/services/itemPedidosServices/ShowItemPedidosServices';
-import UpdateItemPedidosService from '@shared/services/itemPedidosServices/UpdateItemPedidosServices';
+import CreateItemPedidosService from '../../../shared/services/itemPedidosServices/CreateItemPedidosServices';
+import DeleteItemPedidosService from '../../../shared/services/itemPedidosServices/DeleteItemPedidosServices';
+import ListItemPedidosService from '../../../shared/services/itemPedidosServices/ListItemPedidosServices';
+import ShowItemPedidosService from '../../../shared/services/itemPedidosServices/ShowItemPedidosServices';
+import UpdateItemPedidosService from '../../../shared/services/itemPedidosServices/UpdateItemPedidosServices';
 
 export default class ItemPedidosController {
   public async index(

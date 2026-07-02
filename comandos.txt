@@ -58,3 +58,13 @@ Pedido
 	"created_at": "2026-07-02T01:58:13.895Z",
 	"updated_at": "2026-07-02T01:58:13.895Z"
 }
+
+
+Para rodar a imagem:
+docker compose up --build
+
+docker compose down -v = caso de problema
+
+
+Insominia:
+http://localhost:3333

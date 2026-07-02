@@ -1,4 +1,4 @@
-import { AppDataSource } from "@shared/typeorm/data-source";
+import { AppDataSource } from "../data-source";
 import { Repository } from "typeorm";
 import ItemPedidos from "../entities/ItemPedidos";
 

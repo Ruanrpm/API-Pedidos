@@ -8,7 +8,9 @@
     "dev": "ts-node-dev --inspect -r tsconfig-paths/register --transpile-only --ignore-watch node_modules src/shared/http/server.ts",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migration:run": "npm run typeorm -- migration:run -d src/shared/typeorm/data-source.ts",
-    "migration:generate": "npm run typeorm -- migration:generate -d src/shared/typeorm/data-source.ts"
+    "migration:generate": "npm run typeorm -- migration:generate -d src/shared/typeorm/data-source.ts",
+    "build": "tsc",
+    "start": "node dist/shared/http/server.js"
   },
   "repository": {
     "type": "git",

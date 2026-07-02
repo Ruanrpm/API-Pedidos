@@ -4,8 +4,8 @@ import { errors } from 'celebrate';
 import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import routes from './routes';
-import AppError from '@shared/errors/AppError';
-import { AppDataSource } from '@shared/typeorm/data-source';
+import AppError from '../errors/AppError';
+import { AppDataSource } from '../typeorm/data-source';
 
 
 const app = express();
