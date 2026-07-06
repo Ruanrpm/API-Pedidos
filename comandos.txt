@@ -49,6 +49,14 @@ Item Pedido
 }
 
 Pedido
+{
+	"nome": "Combo",
+	"data_pedido": "2006/11/28",
+	"status": "Pendente",
+	"valor_total": "0",
+	"forma_pagamento": "BusCard"
+}
+
 {		
 	"nome": "bus",
 	"data_pedido": "2006-11-28",

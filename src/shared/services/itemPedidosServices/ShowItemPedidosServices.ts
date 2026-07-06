@@ -1,7 +1,6 @@
 import AppError from "../../errors/AppError";
 import { AppDataSource } from "../../typeorm/data-source";
 import ItemPedidos from "../../typeorm/entities/ItemPedidos";
-import { recalcularPedidoTotal } from "./recalcularPedidoTotal";
 
 interface IRequest {
   id: string;
